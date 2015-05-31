@@ -37,9 +37,9 @@ USER ${USER_NAME}
 
 RUN mkdir /home/${USER_NAME}/.ssh
 RUN chmod 700 /home/${USER_NAME}/.ssh
-ADD id_rsa /home/${USER_NAME}/.ssh/id_rsa
-ADD config /home/${USER_NAME}/.ssh/config
-ADD authorized_keys /home/${USER_NAME}/.ssh/authorized_keys
+# ADD id_rsa /home/${USER_NAME}/.ssh/id_rsa
+# ADD config /home/${USER_NAME}/.ssh/config
+# ADD authorized_keys /home/${USER_NAME}/.ssh/authorized_keys
 
 USER root
 EXPOSE 22
