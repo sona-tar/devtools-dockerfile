@@ -9,11 +9,12 @@ ENV ROOT_PASS      root
 # root user
 ## app
 RUN apt-get -yq update && apt-get -yq upgrade \
-     build-essential openssh-server language-pack-ja zsh tmux \
+     build-essential libncurses5-dev openssh-server language-pack-ja \
+     zsh tmux \
      git mercurial subversion gcc \
      wget unzip curl p7zip-full xterm tree grep \
      emacs24 texinfo vim rlwrap python-pip ruby && \
-     pip install diff-highlight
+     pip install diff-highlight pygments
 
 ## ssh
 RUN mkdir /var/run/sshd && \
@@ -43,7 +44,7 @@ RUN mkdir /home/${USER_NAME}/.ssh && \
 
 ## app
 RUN cd $HOME && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
-RUN ${HOME}/.linuxbrew/bin/brew install peco/peco/peco sona-tar/ghq/ghq
+RUN ${HOME}/.linuxbrew/bin/brew install peco/peco/peco sona-tar/ghq/ghq global
 RUN mkdir -p /home/${USER_NAME}/src/github.com /home/${USER_NAME}/bin
 ADD init.sh /home/${USER_NAME}/init.sh
 
