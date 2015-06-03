@@ -44,7 +44,7 @@ RUN mkdir /home/${USER_NAME}/.ssh && \
 
 ## app
 RUN cd $HOME && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
-RUN ${HOME}/.linuxbrew/bin/brew install peco/peco/peco sona-tar/ghq/ghq global
+RUN ${HOME}/.linuxbrew/bin/brew install peco/peco/peco motemen/ghq/ghq sona-tar/tools/ghs global
 RUN mkdir -p /home/${USER_NAME}/src/github.com /home/${USER_NAME}/bin
 ADD init.sh /home/${USER_NAME}/init.sh
 
