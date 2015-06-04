@@ -1,0 +1,2 @@
+dev:
+    image: sonatar/devtools-dockerfile

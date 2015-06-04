@@ -12,7 +12,7 @@ RUN apt-get -yq update && apt-get -yq upgrade \
      build-essential libncurses5-dev openssh-server language-pack-ja \
      zsh tmux \
      git mercurial subversion gcc \
-     wget unzip curl p7zip-full xterm tree grep \
+     wget unzip curl p7zip-full xterm tree grep silversearcher-ag \
      emacs24 texinfo vim rlwrap python-pip ruby && \
      pip install diff-highlight pygments
 
