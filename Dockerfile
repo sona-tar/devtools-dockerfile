@@ -12,8 +12,10 @@ RUN apt-get -yq update && apt-get -yq upgrade \
      build-essential libncurses5-dev openssh-server language-pack-ja \
      zsh tmux \
      git mercurial subversion gcc \
-     wget unzip curl p7zip-full xterm tree grep silversearcher-ag \
-     emacs24 texinfo vim rlwrap python-pip ruby && \
+     wget zip unzip curl p7zip-full xterm tree \
+     grep silversearcher-ag \
+     emacs24 texinfo vim rlwrap \
+     python-pip ruby && \
      pip install diff-highlight pygments
 
 ## ssh
@@ -44,7 +46,10 @@ RUN mkdir /home/${USER_NAME}/.ssh && \
 
 ## app
 RUN cd $HOME && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
-RUN ${HOME}/.linuxbrew/bin/brew install peco/peco/peco motemen/ghq/ghq sona-tar/tools/ghs global
+RUN ${HOME}/.linuxbrew/bin/brew install \
+           peco/peco/peco motemen/ghq/ghq sona-tar/tools/ghs global \
+	   tcnksm/ghr/ghr && \
+          go get github.com/mitchellh/gox && gox -build-toolchain
 RUN mkdir -p /home/${USER_NAME}/src/github.com /home/${USER_NAME}/bin
 ADD init.sh /home/${USER_NAME}/init.sh
 
