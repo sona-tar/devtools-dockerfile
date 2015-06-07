@@ -4,21 +4,23 @@ MAINTAINER sona-tar
 # EVN
 ENV USER_NAME      develop
 ENV USER_PASS      develop
+ENV USER_HOME      "/home/${USER_NAME}"
 ENV ROOT_PASS      root
 
 # root user
-## app
+## app install
 RUN apt-get -yq update && apt-get -yq upgrade \
      build-essential libncurses5-dev openssh-server language-pack-ja \
      zsh tmux \
      git mercurial subversion gcc \
+     python-pip ruby \
      wget zip unzip curl p7zip-full xterm tree \
      grep silversearcher-ag \
      emacs24 texinfo vim rlwrap \
-     python-pip ruby && \
+     && \
      pip install diff-highlight pygments
 
-## ssh
+## ssh settings
 RUN mkdir /var/run/sshd && \
      echo "root:${ROOT_PASS}" | chpasswd && \
      sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
@@ -34,7 +36,6 @@ RUN adduser --disabled-password --gecos "" ${USER_NAME} \
 
 RUN chsh -s /bin/zsh ${USER_NAME}
 
-
 # develop user
 ## ssh
 USER ${USER_NAME}
@@ -47,9 +48,12 @@ RUN mkdir /home/${USER_NAME}/.ssh && \
 ## app
 RUN cd $HOME && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
 RUN ${HOME}/.linuxbrew/bin/brew install \
-           peco/peco/peco motemen/ghq/ghq sona-tar/tools/ghs global \
-	   tcnksm/ghr/ghr && \
-          go get github.com/mitchellh/gox && gox -build-toolchain
+           go peco/peco/peco motemen/ghq/ghq sona-tar/tools/ghs global \
+	   tcnksm/ghr/ghr
+ENV GOPATH "${USER_HOME}"
+ENV PATH   "$PATH:$GOPATH/bin:/usr/local/go/bin:${USER_HOME}/.linuxbrew/bin"
+RUN go get github.com/mitchellh/gox
+RUN gox -build-toolchain
 RUN mkdir -p /home/${USER_NAME}/src/github.com /home/${USER_NAME}/bin
 ADD init.sh /home/${USER_NAME}/init.sh
 
