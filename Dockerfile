@@ -60,4 +60,5 @@ ADD init.sh /home/${USER_NAME}/init.sh
 # root user
 USER root
 EXPOSE 22
+RUN mkdir /host
 CMD ["/usr/sbin/sshd", "-D"]
