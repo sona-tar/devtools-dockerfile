@@ -6,7 +6,7 @@ sona-tar development tools on Ubuntu
 ```
 docker-compose up -d
 docker-compose ps
-          Name                  Command        State           Ports        
+          Name                  Command        State           Ports
           ----------------------------------------------------------------------------
           devtoolsdockerfile_dev_1   /usr/sbin/sshd -D   Up      0.0.0.0:10022->22/tcp
 
@@ -19,23 +19,38 @@ ssh -p 10022 develop@${HOSTIP}
 ```
 
 
-## setup dotfiles
+## setup proxy
 ```
-DOTFILESREPO=https://github.com/sona-tar/dotfiles
-source init.sh
-cd src/github.com
-git clone ${DOTFILESREPO}
-cd dotfiles
-./setup.sh
-./app_install.sh
-zsh
+source proxy.sh DOMAIN=yourhost
 ```
 
 ## developer tools
+
+### editor
+emacs
+vim
+
+### Language
+python
+ruby
+golang
+
+### github
+[ghq](https://github.com/motemen/ghq)   Manage remote repository clones
+[ghs](https://github.com/sona-tar/ghs)  search repository in github
+
+### utils
+[peco](https://github.com/peco/peco)  Simplistic interactive filtering tool
+[gtags and pygments](http://qiita.com/sona-tar/items/672df1259a76f082ce42) gtags support golang, ruby, python
+
+
+### alias
+[gpi](http://qiita.com/sona-tar/items/c11063cd3671c07b6e0a) ghs | peco | ghq
+
+
+### Global alias
 ```
-emacs -nw
-go
-ghq
-ghs
-peco
+git add S
+git rebase H
+git checkout H
 ```
