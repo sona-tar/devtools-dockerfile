@@ -1,0 +1,62 @@
+################################################################################
+# my peco Libs
+#
+function set-buffer() {
+  NEW_WORD="$@"
+  BUFFER=${BUFFER}${NEW_WORD}
+  CURSOR=$#BUFFER
+}
+
+function zsh-peco() {
+  BASE_CMD="$1"
+  FORMATTER="$2"
+  FILTERD_LINES=$(eval ${BASE_CMD} | peco)
+  RESULT=$(${FORMATTER} ${FILTERD_LINES})
+  echo $RESULT
+  # set-buffer "${RESULT}"
+}
+
+################################################################################
+# FORMATTER
+#
+function get-line2() {
+  lines="$@"
+  ret=$(echo ${lines} | awk '{ print $2 }')
+  echo ${ret}
+}
+
+################################################################################
+# FUNC
+#
+function git-hash-peco() {
+  BASE_CMD="git log --oneline --decorate --graph --branches"
+  zsh-peco ${BASE_CMD} get-line2
+}
+
+function git-status-files-peco() {
+  BASE_CMD="git status --short"
+  zsh-peco ${BASE_CMD} get-line2
+}
+
+function gpr () {
+  ghq list --full-path | peco | xargs rm -r
+}
+
+function gpi () {
+  [ "$#" -eq 0 ] && echo "Usage : gpi QUERY" && return 1
+  ghs "$@" | peco | awk '{print $1}' | ghq import
+}
+
+
+################################################################################
+# Global Alias
+#
+alias -g H='$(git-hash-peco)'
+alias -g S='$(git-status-files-peco)'
+
+# Normal Alias
+#
+
+alias glk='ghq look'
+alias gli='ghq list'
+
