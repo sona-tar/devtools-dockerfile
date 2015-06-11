@@ -2,6 +2,20 @@
 sona-tar development tools on Ubuntu
 
 
+## docker and docker-compose INSTALL
+### CentOS 7
+```
+yum -y install docker python-pip
+pip install docker-compose
+```
+
+### Ubuntu
+```
+apt-get install docker python-pip
+pip install docker-compose
+```
+
+
 ## SETUP
 
 ```
