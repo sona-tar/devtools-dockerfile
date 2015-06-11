@@ -33,36 +33,36 @@ cd devtools-dockerfile
 
 ### docker-compose lifecycle
 ```
-$ docker-compose up -d
+# docker-compose up -d
 Pulling dev (sonatar/devtools-dockerfile:latest)...
 Creating devtoolsdockerfile_dev_1...
 
-$ docker-compose ps
+# docker-compose ps
 Name                  Command        State           Ports
 ----------------------------------------------------------------------------
 devtoolsdockerfile_dev_1   /usr/sbin/sshd -D   Up      0.0.0.0:10022->22/tcp
 
-$ docker-compose stop
+# docker-compose stop
 Stopping devtoolsdockerfile_dev_1...
 
-$ docker-compose ps
+# docker-compose ps
           Name                  Command        State    Ports
 -------------------------------------------------------------
 devtoolsdockerfile_dev_1   /usr/sbin/sshd -D   Exit 0
 
-$ docker-compose start
+# docker-compose start
 Starting devtoolsdockerfile_dev_1...
 
-$ docker-compose ps
+# docker-compose ps
           Name                  Command        State           Ports
 ----------------------------------------------------------------------------
 devtoolsdockerfile_dev_1   /usr/sbin/sshd -D   Up      0.0.0.0:10022->22/tcp
 
-$ docker-compose stop
-$ docker-compose rm
+# docker-compose stop
+# docker-compose rm
 Are you sure? [yN] y
 Removing devtoolsdockerfile_dev_1...
-$ docker-compose ps
+# docker-compose ps
 Name   Command   State   Ports
 ------------------------------
 ```
@@ -73,19 +73,46 @@ Name   Command   State   Ports
 ### ssh login
 
 ```
-$ docker-compose ps
+# docker-compose ps
           Name                  Command        State           Ports
 ----------------------------------------------------------------------------
 devtoolsdockerfile_dev_1   /usr/sbin/sshd -D   Up      0.0.0.0:10022->22/tcp
-
-$ ssh -p 10022 develop@localhost
 ```
 
+if you use RSA authentication.
+```
+# ls ~/.ssh/id_rsa.pub
+# ssh-copy-id -p 10022 localhost
+# ssh -p 10022 develop@localhost
+```
+
+### tree
+
+host root direcotory mount to /host
+```
+$ ls /host
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+
+```
+
+
+```
+$ tree $HOME -L 1 # omitted
+/home/develop
+|-- proxy.sh
+|-- bin/
+|-- pkg/
+|-- src/
+|-- .zshrc
+|-- .linuxbrew/
+|-- .ssh/
+`-- .zshrc.d/
+```
 
 ### proxy setting
 
 ```
-source proxy.sh DOMAIN=yourhost
+$ source proxy.sh DOMAIN=yourhost
 ```
 
 ## DEVELOPER TOOLS
