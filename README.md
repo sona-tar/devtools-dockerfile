@@ -2,28 +2,36 @@
 sona-tar development tools on Ubuntu
 
 
-## docker and docker-compose INSTALL
-### CentOS 7
+## SETUP
+
+### docker and docker-compose INSTALL
+
+- CentOS 7
+
 ```
 yum -y install docker python-pip
 pip install docker-compose
 ```
 
-### Ubuntu
+- Ubuntu
+
 ```
 apt-get install docker python-pip
 pip install docker-compose
 ```
 
 
-## SETUP
+### get docker settings
 
 ```
 git clone https://github.com/sona-tar/devtools-dockerfile.git
 cd devtools-dockerfile
 ```
 
-## docker-compose LIFECYCLE
+
+## RUN CONTAINER
+
+### docker-compose LIFECYCLE
 ```
 $ docker-compose up -d
 Creating devtoolsdockerfile_dev_1...
@@ -49,7 +57,10 @@ Name   Command   State   Ports
 ------------------------------
 ```
 
-## SSH LOGIN
+
+## ACCESS RUNNING CONTAINER
+
+### SSH LOGIN
 
 ```
 HOSTIP=192.168.1.2
@@ -57,13 +68,15 @@ ssh -p 10022 develop@${HOSTIP}
 ```
 
 
-## PROXY
+## SETUP
+
+### PROXY
 
 ```
 source proxy.sh DOMAIN=yourhost
 ```
 
-## DEVELOPER TOOLS
+### DEVELOPER TOOLS
 
 ### EDITOR
 
@@ -89,7 +102,7 @@ source proxy.sh DOMAIN=yourhost
 
 ### ALIAS
 
-* [gpi](http://qiita.com/sona-tar/items/c11063cd3671c07b6e0a) - ghs | peco | ghq
+* [gpi](http://qiita.com/sona-tar/items/c11063cd3671c07b6e0a) - ghs | peco | ghq import
 
 
 ### GLOBAL ALIAS
