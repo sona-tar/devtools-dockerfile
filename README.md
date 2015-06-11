@@ -9,23 +9,23 @@ sona-tar development tools on Ubuntu
 - CentOS
 
 ```
-yum -y install docker python-pip
-pip install docker-compose
+# yum -y install docker python-pip
+# pip install docker-compose
 ```
 
 - Ubuntu
 
 ```
-apt-get install docker python-pip
-pip install docker-compose
+# apt-get install docker python-pip
+# pip install docker-compose
 ```
 
 
 ### get docker settings
 
 ```
-git clone https://github.com/sona-tar/devtools-dockerfile.git
-cd devtools-dockerfile
+# git clone https://github.com/sona-tar/devtools-dockerfile.git
+# cd devtools-dockerfile
 ```
 
 
@@ -83,6 +83,9 @@ if you use RSA authentication.
 ```
 # ls ~/.ssh/id_rsa.pub
 # ssh-copy-id -p 10022 localhost
+```
+
+```
 # ssh -p 10022 develop@localhost
 ```
 
@@ -154,7 +157,7 @@ git checkout H
 ```
 
 
-## CONTANER BUILD YOURSELF
+## BUILD YOURSELF CONTAINER
 
 Modify Dockerfile and then exec following command.
 
