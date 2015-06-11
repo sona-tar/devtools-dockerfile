@@ -2,53 +2,83 @@
 sona-tar development tools on Ubuntu
 
 
-## start container
-```
-docker-compose up -d
-docker-compose ps
-          Name                  Command        State           Ports
-          ----------------------------------------------------------------------------
-          devtoolsdockerfile_dev_1   /usr/sbin/sshd -D   Up      0.0.0.0:10022->22/tcp
+## SETUP
 
 ```
+git clone https://github.com/sona-tar/devtools-dockerfile.git
+cd devtools-dockerfile
+```
 
-## ssh login
+## docker-compose LIFECYCLE
+```
+$ docker-compose up -d
+Creating devtoolsdockerfile_dev_1...
+
+$ docker-compose ps
+Name                  Command        State           Ports
+----------------------------------------------------------------------------
+devtoolsdockerfile_dev_1   /usr/sbin/sshd -D   Up      0.0.0.0:10022->22/tcp
+
+$ docker-compose stop
+Stopping devtoolsdockerfile_dev_1...
+
+$ docker-compose ps
+          Name                  Command        State    Ports
+-------------------------------------------------------------
+devtoolsdockerfile_dev_1   /usr/sbin/sshd -D   Exit 0
+
+$ docker-compose rm
+Are you sure? [yN] y
+Removing devtoolsdockerfile_dev_1...
+$ docker-compose ps
+Name   Command   State   Ports
+------------------------------
+```
+
+## SSH LOGIN
+
 ```
 HOSTIP=192.168.1.2
 ssh -p 10022 develop@${HOSTIP}
 ```
 
 
-## setup proxy
+## PROXY
+
 ```
 source proxy.sh DOMAIN=yourhost
 ```
 
-## developer tools
+## DEVELOPER TOOLS
 
-### editor
-emacs
-vim
+### EDITOR
 
-### Language
-python
-ruby
-golang
+* emacs
+* vim
 
-### github
-[ghq](https://github.com/motemen/ghq)   Manage remote repository clones
-[ghs](https://github.com/sona-tar/ghs)  search repository in github
+### LANGUAGE
 
-### utils
-[peco](https://github.com/peco/peco)  Simplistic interactive filtering tool
-[gtags and pygments](http://qiita.com/sona-tar/items/672df1259a76f082ce42) gtags support golang, ruby, python
+* python
+* ruby
+* golang
+
+### GITHUB
+
+* [ghq](https://github.com/motemen/ghq) -  Manage remote repository clones
+* [ghs](https://github.com/sona-tar/ghs) -  search repository in github
+
+### UTILS
+
+* [peco](https://github.com/peco/peco) - Simplistic interactive filtering tool
+* [gtags and pygments](http://qiita.com/sona-tar/items/672df1259a76f082ce42) - gtags support golang, ruby, python
 
 
-### alias
-[gpi](http://qiita.com/sona-tar/items/c11063cd3671c07b6e0a) ghs | peco | ghq
+### ALIAS
+
+* [gpi](http://qiita.com/sona-tar/items/c11063cd3671c07b6e0a) - ghs | peco | ghq
 
 
-### Global alias
+### GLOBAL ALIAS
 ```
 git add S
 git rebase H
