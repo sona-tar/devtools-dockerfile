@@ -56,6 +56,7 @@ RUN go get github.com/mitchellh/gox
 RUN gox -build-toolchain
 RUN mkdir -p /home/${USER_NAME}/src/github.com /home/${USER_NAME}/bin /home/${USER_NAME}/.zshrc.d
 ADD proxy.sh /home/${USER_NAME}/
+ADD zshrc /home/${USER_NAME}/.zshrc
 ADD zshrc.d /home/${USER_NAME}/zshrc.d/
 
 # root user
