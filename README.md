@@ -67,7 +67,7 @@ Name   Command   State   Ports
 ------------------------------
 ```
 
-[more detail](http://qiita.com/iron-breaker/items/6b74fe9b0620b74d4281)
+[Dockerライフサイクルをハンズオンで学ぶ](http://qiita.com/iron-breaker/items/6b74fe9b0620b74d4281)
 
 
 ### ssh login
@@ -98,7 +98,7 @@ bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  s
 
 ```
 
-
+home directory
 ```
 $ tree $HOME -L 1 # omitted
 /home/develop
@@ -114,9 +114,13 @@ $ tree $HOME -L 1 # omitted
 
 ### proxy setting
 
+- on container
 ```
 $ source proxy.sh DOMAIN=yourhost
 ```
+
+[SOTA Proxy環境下でDockerを動かす](http://deeeet.com/writing/2014/07/01/docker-behind-proxy/)
+
 
 ## DEVELOPER TOOLS
 
@@ -134,10 +138,12 @@ $ source proxy.sh DOMAIN=yourhost
 ### github
 
 * [ghq](https://github.com/motemen/ghq) -  Manage remote repository clones
+* [ghr](https://github.com/tcnksm/ghr) - Easily ship your project to your user using Github Releases.
 * [ghs](https://github.com/sona-tar/ghs) -  search repository in github
 
 ### utils
 
+* [brew](https://github.com/Homebrew/linuxbrew) - Linuxbrew is a fork of Homebrew, the Mac OS package manager, for Linux.
 * [peco](https://github.com/peco/peco) - Simplistic interactive filtering tool
 * [gtags and pygments](http://qiita.com/sona-tar/items/672df1259a76f082ce42) - gtags support golang, ruby, python
 
@@ -149,11 +155,11 @@ $ source proxy.sh DOMAIN=yourhost
 
 ### global alias
 
-* [general git filters](http://qiita.com/sona-tar/items/fe401c597e8e51d4e243)
+* [General git filters](http://qiita.com/sona-tar/items/fe401c597e8e51d4e243)
 ```
-git add F
-git rebase H
-git checkout H
+$ git add F
+$ git rebase H
+$ git checkout H
 ```
 
 
