@@ -79,8 +79,10 @@ source proxy.sh DOMAIN=yourhost
 
 
 ### GLOBAL ALIAS
+
+* [general git filters](http://qiita.com/sona-tar/items/fe401c597e8e51d4e243)
 ```
-git add S
+git add F
 git rebase H
 git checkout H
 ```

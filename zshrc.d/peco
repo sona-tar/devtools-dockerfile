@@ -52,11 +52,10 @@ function gpi () {
 # Global Alias
 #
 alias -g H='$(git-hash-peco)'
-alias -g S='$(git-status-files-peco)'
+alias -g F='$(git-status-files-peco)'
 
 # Normal Alias
 #
 
 alias glk='ghq look'
 alias gli='ghq list'
-
