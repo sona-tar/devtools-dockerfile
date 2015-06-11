@@ -1,41 +1,14 @@
 ################################################################################
-# my peco Libs
-#
-function set-buffer() {
-  NEW_WORD="$@"
-  BUFFER=${BUFFER}${NEW_WORD}
-  CURSOR=$#BUFFER
-}
-
-function zsh-peco() {
-  BASE_CMD="$1"
-  FORMATTER="$2"
-  FILTERD_LINES=$(eval ${BASE_CMD} | peco)
-  RESULT=$(${FORMATTER} ${FILTERD_LINES})
-  echo $RESULT
-  # set-buffer "${RESULT}"
-}
-
-################################################################################
-# FORMATTER
-#
-function get-line2() {
-  lines="$@"
-  ret=$(echo ${lines} | awk '{ print $2 }')
-  echo ${ret}
-}
-
-################################################################################
 # FUNC
 #
 function git-hash-peco() {
   BASE_CMD="git log --oneline --decorate --graph --branches"
-  zsh-peco ${BASE_CMD} get-line2
+  ${BASE_CMD} | peco | awk '{print $2}'
 }
 
 function git-status-files-peco() {
   BASE_CMD="git status --short"
-  zsh-peco ${BASE_CMD} get-line2
+  ${BASE_CMD} | peco | awk '{print $2}'
 }
 
 function gpr () {
