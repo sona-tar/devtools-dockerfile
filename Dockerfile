@@ -54,10 +54,10 @@ ENV GOPATH "${USER_HOME}"
 ENV PATH   "$PATH:$GOPATH/bin:/usr/local/go/bin:${USER_HOME}/.linuxbrew/bin"
 RUN go get github.com/mitchellh/gox
 RUN gox -build-toolchain
-RUN mkdir -p /home/${USER_NAME}/src/github.com /home/${USER_NAME}/bin
+RUN mkdir -p /home/${USER_NAME}/src/github.com /home/${USER_NAME}/bin /home/${USER_NAME}/.zshrc.d
 ADD add_dir/proxy.sh /home/${USER_NAME}/
 ADD add_dir/.zshrc /home/${USER_NAME}/
-ADD add_dir/.zshrc.d /home/${USER_NAME}/
+ADD add_dir/.zshrc.d /home/${USER_NAME}/.zshrc.d/
 
 # root user
 USER root
