@@ -59,6 +59,7 @@ RUN mkdir -p /home/${USER_NAME}/src/github.com /home/${USER_NAME}/bin \
     touch ${HOME}/.Xauthority
 
 ADD add_dir/proxy.sh /home/${USER_NAME}/
+ADD add_dir/.gitconfig /home/${USER_NAME}/
 ADD add_dir/.zshrc /home/${USER_NAME}/
 ADD add_dir/.zshrc.d /home/${USER_NAME}/.zshrc.d/
 

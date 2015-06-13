@@ -89,6 +89,17 @@ if you use RSA authentication.
 # ssh -p 10022 develop@localhost
 ```
 
+### git settings
+```
+$ git config --global user.name    USER_NAME
+$ git config --global user.email   username@gmail.com
+$ git config --global github.user  USER_NAME
+$ git config --global github.token ....
+```
+
+Get [Github token](https://github.com/settings/tokens)
+
+
 ### tree
 
 host root direcotory mount to /host
@@ -131,9 +142,11 @@ $ source proxy.sh DOMAIN=yourhost
 
 ### language
 
-* python
-* ruby
-* golang
+* C/C++
+* Perl
+* Python
+* Ruby
+* Golang
 
 ### github
 
