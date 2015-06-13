@@ -17,6 +17,7 @@ RUN apt-get -yq update && apt-get -yq upgrade \
      wget zip unzip curl p7zip-full xterm tree \
      grep silversearcher-ag \
      emacs24 texinfo vim rlwrap \
+     firefox \
      && \
      pip install diff-highlight pygments
 
