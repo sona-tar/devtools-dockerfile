@@ -206,23 +206,18 @@ $ git push --tag origin master
 
 ### Release binary
 
-build for Multi platoforms by gox
+build for Multi platoforms by gox.
+
 
 ```
-$ gox
-
+$ create_pkg.sh 0.0.1
 ```
 
-release all binary by ghr
+release all binary by ghr.
 
 ```
-$ ghr
-
-```
-
-
-
-
+$ release_pkg.sh 0.0.1
+$ hub browse
 ```
 
 ## DEVELOPER TOOLS
