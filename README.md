@@ -100,6 +100,7 @@ $ git config --global user.name    ${GITHUB_USER}
 $ git config --global user.email   username@gmail.com
 $ git config --global github.user  ${GITHUB_USER}
 $ git config --global github.token ....
+$ git config --global push.default simple
 ```
 
 Get [Github token](https://github.com/settings/tokens)
@@ -155,7 +156,7 @@ $ echo "go-sample" > README.md
 $ git add README.md
 $ git commit -m "Add README.md"
 $ git log
-$ git push origin master
+$ git push
 $ hub browse
 ```
 
@@ -195,7 +196,7 @@ go-sample test 2
 $ git add sample-main.go sample-print.go
 $ git commit -m "Add sample-main.go sample-print.go"
 $ git tag -a 0.0.1 -m "Release 0.0.1"
-$ git push --tag origin master
+$ git push --tag
 ```
 
 ### Release binary
