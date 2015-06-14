@@ -82,14 +82,15 @@ devtoolsdockerfile_dev_1   /usr/sbin/sshd -D   Up      0.0.0.0:10022->22/tcp
 if you use RSA authentication.
 
 ```
+# CONTAINERHOST=localhost
 # ssh-key -t rsa
 # ls ~/.ssh/id_rsa.pub
-# ssh-copy-id -p 10022 localhost
-# scp -P 10022 ~/.ssh/id_rsa develop@localhost:~/.ssh/
+# ssh-copy-id -p 10022 develop@${CONTAINERHOST}
+# scp -P 10022 ~/.ssh/id_rsa develop@${CONTAINERHOST}:~/.ssh/
 ```
 
 ```
-# ssh -p 10022 develop@localhost
+# ssh -p 10022 develop@${CONTAINERHOST}
 ```
 
 ### git settings
