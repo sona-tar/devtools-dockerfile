@@ -140,21 +140,11 @@ $ source proxy.sh DOMAIN=yourhost
 ## DEVELOP by GOLANG
 ### Create Reapository
 
-`hub create` or https://github.com/new
-
-
-`hub create`
 ```
 $ mkdir -p ~/src/github.com/${GITHUB_USER}/go-sample
 $ cd ~/src/github.com/${GITHUB_USER}/go-sample
 $ git init
 $ hub create
-```
-
-https://github.com/new
-```
-$ ghq get ${GITHUB_USER}/go-sample
-$ ghq look go-sample
 ```
 
 ### Write README and First commit
