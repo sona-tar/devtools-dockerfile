@@ -55,7 +55,11 @@ ENV GOPATH "${USER_HOME}"
 ENV PATH   "$PATH:$GOPATH/bin:/usr/local/go/bin:${USER_HOME}/.linuxbrew/bin"
 RUN go get github.com/mitchellh/gox
 RUN gox -build-toolchain
-RUN mkdir -p ${USER_HOME}/{src/github.com,bin,.zshrc.d,.vim/plugin,.emacs.d/plugin} && \
+RUN mkdir -p ${USER_HOME}/src/github.com \\
+             ${USER_HOME}/bin \\
+	     ${USER_HOME}/.zshrc.d \\
+	     ${USER_HOME}/.vim/plugin \\
+	     ${USER_HOME}/.emacs.d/plugin && \
     touch ${USER_HOME}/.Xauthority && \
     cp ${USER_HOME}/.linuxbrew/share/gtags/gtags.vim ${USER_HOME}/.vim/plugin/ && \
     cp ${USER_HOME}/.linuxbrew/share/gtags/gtags.el ${USER_HOME}/.emacs.d/plugin/
