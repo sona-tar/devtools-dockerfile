@@ -68,7 +68,7 @@ RUN mkdir -p ${HOME}/src/github.com \
 
 ADD add_dir/proxy.sh ${USER_HOME}/
 ADD add_dir/bin ${USER_HOME}/bin/
-ADD add_dir/.tmux.confn ${USER_HOME}/
+ADD add_dir/.tmux.conf ${USER_HOME}/
 ADD add_dir/.gitconfig ${USER_HOME}/
 ADD add_dir/.zshrc ${USER_HOME}/
 ADD add_dir/.zshrc.d ${USER_HOME}/.zshrc.d/
