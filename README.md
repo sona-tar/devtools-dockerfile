@@ -81,8 +81,10 @@ devtoolsdockerfile_dev_1   /usr/sbin/sshd -D   Up      0.0.0.0:10022->22/tcp
 
 if you use RSA authentication.
 ```
+# ssh-key -t rsa
 # ls ~/.ssh/id_rsa.pub
 # ssh-copy-id -p 10022 localhost
+# scp -P 10022 ~/.ssh/id_rsa develop@localhost:~/.ssh/
 ```
 
 ```
@@ -91,9 +93,10 @@ if you use RSA authentication.
 
 ### git settings
 ```
-$ git config --global user.name    USER_NAME
+export GITHUB_USER=YOU
+$ git config --global user.name    ${GITHUB_USER}
 $ git config --global user.email   username@gmail.com
-$ git config --global github.user  USER_NAME
+$ git config --global github.user  ${GITHUB_USER}
 $ git config --global github.token ....
 ```
 
@@ -132,6 +135,95 @@ $ source proxy.sh DOMAIN=yourhost
 
 [SOTA Proxy環境下でDockerを動かす](http://deeeet.com/writing/2014/07/01/docker-behind-proxy/)
 
+
+## DEVELOP by GOLANG
+### Create Reapository
+
+`hub create` or https://github.com/new
+
+
+`hub create`
+```
+$ mkdir -p ~/src/github.com/${GITHUB_USER}/go-sample
+$ cd ~/src/github.com/${GITHUB_USER}/go-sample
+$ git init
+$ hub create
+```
+
+https://github.com/new
+```
+$ ghq get ${GITHUB_USER}/go-sample
+$ ghq look go-sample
+```
+
+### Write README and First commit
+
+```
+$ echo "go-sample" > README.md
+$ git add README.md
+$ git commit -m "Add README.md"
+$ git log
+$ git push origin master
+$ hub browse
+```
+
+### Write Golang Code
+```
+cat << '_EOF_' > sample-main.go
+package main
+
+func main() {
+     SamplePrint("test 1")
+     SamplePrint("test 2")
+}
+_EOF_
+
+cat << '_EOF_' > sample-print.go
+package main
+
+import  "fmt"
+
+func SamplePrint(msg string) {
+     fmt.Printf("go-sample %s\n", msg)
+}
+_EOF_
+
+$ gtags -v --gtagslabel=pygments
+$ ls G*
+GPATH  GRTAGS  GTAGS
+$ go build
+$ ./go-sample
+go-sample test 1
+go-sample test 2
+
+### Commit and Push
+```
+$ git add sample-main.go sample-print.go
+$ git commit -m "Add sample-main.go sample-print.go"
+$ git tag -a 0.0.1 -m "Release 0.0.1"
+$ git push --tag origin master
+```
+
+### Release binary
+
+build for Multi platoforms by gox
+
+```
+$ gox
+
+```
+
+release all binary by ghr
+
+```
+$ ghr
+
+```
+
+
+
+
+```
 
 ## DEVELOPER TOOLS
 

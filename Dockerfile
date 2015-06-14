@@ -67,6 +67,8 @@ RUN mkdir -p ${HOME}/src/github.com \
     cp ${HOME}/.linuxbrew/share/gtags/gtags.el ${HOME}/.emacs.d/plugin/
 
 ADD add_dir/proxy.sh ${USER_HOME}/
+ADD add_dir/bin ${USER_HOME}/bin/
+ADD add_dir/.tmux.confn ${USER_HOME}/
 ADD add_dir/.gitconfig ${USER_HOME}/
 ADD add_dir/.zshrc ${USER_HOME}/
 ADD add_dir/.zshrc.d ${USER_HOME}/.zshrc.d/
@@ -74,6 +76,7 @@ ADD add_dir/.emacs.d/init.el ${USER_HOME}/.emacs.d/
 
 # root user
 USER root
+RUN chown -Rf ${USER_NAME}:${USER_NAME} ${USER_HOME}
 EXPOSE 22
 RUN mkdir /host
 CMD ["/usr/sbin/sshd", "-D"]
