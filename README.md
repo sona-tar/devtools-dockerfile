@@ -211,6 +211,8 @@ release all binary by ghr.
 
 ```
 $ release_pkg.sh 0.0.1
+$ hub release
+ (0.0.1)
 $ hub browse
 ```
 
