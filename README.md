@@ -80,6 +80,7 @@ devtoolsdockerfile_dev_1   /usr/sbin/sshd -D   Up      0.0.0.0:10022->22/tcp
 ```
 
 if you use RSA authentication.
+
 ```
 # ssh-key -t rsa
 # ls ~/.ssh/id_rsa.pub
@@ -195,8 +196,10 @@ $ go build
 $ ./go-sample
 go-sample test 1
 go-sample test 2
+```
 
 ### Commit and Push
+
 ```
 $ git add sample-main.go sample-print.go
 $ git commit -m "Add sample-main.go sample-print.go"
