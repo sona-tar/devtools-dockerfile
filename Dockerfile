@@ -47,24 +47,24 @@ RUN mkdir /home/${USER_NAME}/.ssh && \
 # ADD authorized_keys /home/${USER_NAME}/.ssh/authorized_keys
 
 ## app
-RUN cd $HOME && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
-RUN ${HOME}/.linuxbrew/bin/brew install \
+RUN cd ${USER_HOME} && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
+RUN ${USER_HOME}/.linuxbrew/bin/brew install \
            go peco/peco/peco motemen/ghq/ghq sona-tar/tools/ghs global \
 	   tcnksm/ghr/ghr hub
 ENV GOPATH "${USER_HOME}"
 ENV PATH   "$PATH:$GOPATH/bin:/usr/local/go/bin:${USER_HOME}/.linuxbrew/bin"
 RUN go get github.com/mitchellh/gox
 RUN gox -build-toolchain
-RUN mkdir -p ${HOME}/src/github.com ${HOME}/bin {HOME}/.zshrc.d ${HOME}/.vim/plugin ${HOME}/.emacs.d/plugin && \
-    touch ${HOME}/.Xauthority && \
-    cp ${HOME}/.linuxbrew/share/gtags/gtags.vim ${HOME}/.vim/plugin/ && \
-    cp ${HOME}/.linuxbrew/share/gtags/gtags.el ${HOME}/.emacs.d/plugin/
+RUN mkdir -p ${USER_HOME}/{src/github.com,bin,.zshrc.d,.vim/plugin,.emacs.d/plugin} && \
+    touch ${USER_HOME}/.Xauthority && \
+    cp ${USER_HOME}/.linuxbrew/share/gtags/gtags.vim ${USER_HOME}/.vim/plugin/ && \
+    cp ${USER_HOME}/.linuxbrew/share/gtags/gtags.el ${USER_HOME}/.emacs.d/plugin/
 
-ADD add_dir/proxy.sh ${HOME}/
-ADD add_dir/.gitconfig ${HOME}/
-ADD add_dir/.zshrc ${HOME}/
-ADD add_dir/.zshrc.d ${HOME}/.zshrc.d/
-ADD add_dir/.emacs.d/init.el ${HOME}/.emacs.d/
+ADD add_dir/proxy.sh ${USER_HOME}/
+ADD add_dir/.gitconfig ${USER_HOME}/
+ADD add_dir/.zshrc ${USER_HOME}/
+ADD add_dir/.zshrc.d ${USER_HOME}/.zshrc.d/
+ADD add_dir/.emacs.d/init.el ${USER_HOME}/.emacs.d/
 
 # root user
 USER root
