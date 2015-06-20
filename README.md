@@ -1,6 +1,6 @@
-## Supported tags and respective Dockerfile links
+## Supported tags and respective `Dockerfile` links
 
-* `0.0.1`
+* [`latest`](https://github.com/sona-tar/dockerfile-godevcli)
 
 ## What's in this image?
 
