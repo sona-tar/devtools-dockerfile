@@ -163,27 +163,18 @@ $ git push --tag
 
 ### Release binary
 
-build for Multi platoforms by gox.
+Build for Multi platoforms by gox.
 
 
 ```
 $ create_pkg.sh 0.0.1
 ```
 
-release all binary by ghr.
+Release all binary by ghr.
 
 ```
 $ release_pkg.sh 0.0.1
 $ hub release
  (0.0.1)
 $ hub browse
-```
-
-
-## Local Build
-
-Modify Dockerfile and exec following command.
-
-```
-docker-compose -f build.yml build
 ```
