@@ -174,7 +174,7 @@ $ hub browse
 ```
 
 
-## Build Yourself
+## Local Build
 
 Modify Dockerfile and exec following command.
 
