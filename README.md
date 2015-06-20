@@ -243,6 +243,7 @@ $ hub browse
 * [brew](https://github.com/Homebrew/linuxbrew) - Linuxbrew is a fork of Homebrew, the Mac OS package manager, for Linux.
 * [peco](https://github.com/peco/peco) - Simplistic interactive filtering tool
 * [gtags and pygments](http://qiita.com/sona-tar/items/672df1259a76f082ce42) - gtags support golang, ruby, python
+* [gorename](http://mattn.kaoriya.net/software/lang/go/20150113141338.htm)
 
 
 ### alias
