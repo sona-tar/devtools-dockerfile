@@ -30,7 +30,7 @@ Golang Development Tools on Ubuntu.
 
 * [brew](https://github.com/Homebrew/linuxbrew) - Linuxbrew is a fork of Homebrew, the Mac OS package manager, for Linux.
 * [peco](https://github.com/peco/peco) - Simplistic interactive filtering tool
-* [gtags and pygments](http://qiita.com/sona-tar/items/672df1259a76f082ce42) - gtags support golang, ruby, python
+* [GNU Global and pygments](http://qiita.com/sona-tar/items/672df1259a76f082ce42) - Source code tagging system. Support Golang, Ruby, Python, C/C++ and more.
 * [gorename](http://mattn.kaoriya.net/software/lang/go/20150113141338.htm) Type-safe renaming of identifiers.
 
 
